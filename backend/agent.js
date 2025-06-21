@@ -1,8 +1,7 @@
-// Acá va la lógica real de tu agente. Por ejemplo:
-import { tool } from "llamaindex"; // o lo que corresponda según tu agente
+import { elAgente } from "../src/main.js";
 
-// Simulación de agente (reemplazá por tu implementación real)
 export async function runAgente(mensaje) {
-  // Acá llamás a tu agente real
-  return `Respuesta del agente a: ${mensaje}`;
+  const respuesta = await elAgente.chat(mensaje);
+  console.log("Respuesta del agente:", respuesta);
+  return respuesta;
 }

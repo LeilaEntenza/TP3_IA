@@ -111,6 +111,9 @@ Puedo ayudarte a:
 
 ¿Qué necesitás?
 `;
-
+if (import.meta.url === `file://${process.argv[1]}`) {
+  empezarChat(elAgente, mensajeBienvenida);
+}
 // Iniciar el chat
 empezarChat(elAgente, mensajeBienvenida);
+export { elAgente };
