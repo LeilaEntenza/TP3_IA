@@ -14,6 +14,7 @@ app.post("/api/chat", async (req, res) => {
     const respuesta = await runAgente(mensaje);
     res.json({ respuesta });
   } catch (error) {
+    console.error("ERROR EN /api/chat:", error); 
     res.status(500).json({ error: "Error interno del servidor" });
   }
 });

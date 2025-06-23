@@ -15,7 +15,9 @@ export default function Chat() {
     setMensajes((prev) => [...prev, { tipo: 'usuario', texto: input }]);
     try {
       const respuesta = await enviarMensaje(input);
-      setMensajes((prev) => [...prev, { tipo: 'asistente', texto: respuesta }]);
+      console.log('Respuesta del backend:', respuesta);
+      // Elegí la propiedad correcta o temporalmente usá JSON.stringify
+      setMensajes((prev) => [...prev, { tipo: 'asistente', texto: typeof respuesta === "string" ? respuesta : JSON.stringify(respuesta) }]);
     } catch (err) {
       setError(err.message);
     }

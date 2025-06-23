@@ -8,5 +8,14 @@ export async function enviarMensaje(mensaje) {
     throw new Error('Error en la respuesta del servidor');
   }
   const data = await response.json();
-  return data.respuesta;
+  return limpiarRespuesta(data.respuesta.data.result);
+}
+
+// Función para limpiar el bloque <think>...</think>
+function limpiarRespuesta(respuesta) {
+  const partes = respuesta.split('</think>');
+  if (partes.length > 1) {
+    return partes[1].trim();
+  }
+  return respuesta.trim();
 }
