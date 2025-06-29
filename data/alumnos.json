@@ -34,6 +34,11 @@
       "nombre": "Percy Jackson",
       "apellido": "Jackson",
       "curso": "5IC"
+    },
+    {
+      "nombre": "Lei",
+      "apellido": "Chiderski",
+      "curso": "5IC"
     }
   ]
 }

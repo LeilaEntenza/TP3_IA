@@ -26,12 +26,10 @@ Respondé de forma clara y breve.
 
 const ollamaLLM = new Ollama({
     model: "qwen3:1.7b",
-    temperature: 0.75,
+    temperature: 0,
     requestTimeout: 3 * 60 * 1000, 
 });
 
-
-// TODO: Implementar la Tool para buscar por nombre
 const buscarPorNombreTool = tool({
     name: "buscarPorNombre",
     description: "Usa esta función para encontrar estudiantes por su nombre",
@@ -111,9 +109,9 @@ Puedo ayudarte a:
 
 ¿Qué necesitás?
 `;
+
 if (import.meta.url === `file://${process.argv[1]}`) {
   empezarChat(elAgente, mensajeBienvenida);
 }
-// Iniciar el chat
-empezarChat(elAgente, mensajeBienvenida);
+
 export { elAgente };

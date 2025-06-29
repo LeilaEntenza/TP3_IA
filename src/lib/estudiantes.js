@@ -4,26 +4,30 @@ import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const DATA_FILE = path.join(__dirname, 'alumnos.json');
+const DATA_FILE = path.join(__dirname, '../../data/alumnos.json');
 
 class Estudiantes {
   constructor() {
     this.estudiantes = [];
   }
 
-  cargarEstudiantesDesdeJson() {
-    try {
-      const data = JSON.parse(readFileSync(DATA_FILE, 'utf-8'));
-      this.estudiantes = data.alumnos || [];
-    } catch (e) {
-      console.error("Error al leer el archivo de datos:", e);
-    }
+cargarEstudiantesDesdeJson() {
+  try {
+    console.log("Leyendo:", DATA_FILE);
+    const contenido = readFileSync(DATA_FILE, 'utf-8');
+    console.log("Contenido:", contenido);
+    const data = JSON.parse(contenido);
+    this.estudiantes = data.alumnos || [];
+    console.log("Alumnos en memoria:", this.estudiantes);
+  } catch (e) {
+    console.error("ERROR leyendo alumnos.json", e);
   }
+}
 
   guardarEstudiantes() {
     try {
       writeFileSync(DATA_FILE, JSON.stringify({ alumnos: this.estudiantes }, null, 2));
-      this.cargarEstudiantesDesdeJson();
+      // NO volver a cargar desde disco aquí, solo guardar.
     } catch (e) {
       console.error("Error al guardar los estudiantes:", e);
       throw new Error("No se pudo guardar la lista de estudiantes.");
