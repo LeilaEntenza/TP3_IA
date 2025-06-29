@@ -1,5 +1,7 @@
 # Entregable: Sistema de Gestión de Estudiantes con LLM Tools
 
+Para correr, abrir dos terminales una dentro de backend que se corre con node index.js y una dentro de frontend que se corre con npm run start
+
 Este proyecto es un entregable para implementar un sistema de gestión de estudiantes utilizando LLMs (Large Language Models) y Tools.
 
 ## 📚 Requisitos Previos
